@@ -14,5 +14,5 @@ driver.find_element(By.ID, "auth-fpp-link-bottom")
 driver.find_element(By.XPATH, "//a[@id='ap-other-signin-issues-link' and @class='a-link-normal']")
 #Create your Amazon account button
 
-driver.find_element(By,ID, "//a [@id= 'createAccountSubmit']" )
+driver.find_element(By.ID, "//a [@id= 'createAccountSubmit']" )
 #
