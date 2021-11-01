@@ -7,12 +7,12 @@ SEARCH_INPUT = (By.NAME, 'q')
 SEARCH_SUBMIT = (By.NAME, 'btnK')
 
 
-@given('Open Amazon cancel page')
-def open_Amazon(context):
-    context.driver.get('https://www.amazon.com/gp/help/customer/display.html')
+@given('Open Google page')
+def open_google(context):
+    context.driver.get('https://www.google.com/')
 
 
-@when('Input {search_word} into search field')
+@when('Input {search_word} into search field1')
 def input_search(context, search_word):
     search = context.driver.find_element(*SEARCH_INPUT)
     search.clear()
