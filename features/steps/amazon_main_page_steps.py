@@ -24,15 +24,6 @@ def click_on_amazon_search_icon(context):
 def verify_ham_menu(context):
     context.driver.find_element(*HAM_MENU_ICON)
 
-@given ('Open Amazon product {product_id} page')
-def open_amazon_product(context,product_id):
-    context.driver.get('https://www.amazon.com/Paitluc-Womens-Blouse-Blouses-Women/dp/B08ZSG769Z')
-
-@then ('Verify user can click through color')
-def verify_can_loop_through_colors(context):
-    expected_color = []
-    color_web_elements = context.driver.find_element(By.CSS_SELECTOR, ".a-form-label")
-
 
 @then('Verify {expected_result} text is shown')
 def verify_text_is_shown(context, expected_result):

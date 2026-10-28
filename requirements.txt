@@ -1,2 +1,2 @@
-behave
-selenium
+selenium>=4.15
+behave>=1.2.6
