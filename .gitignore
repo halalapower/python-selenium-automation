@@ -94,3 +94,10 @@ app_binaries/
 
 # Screenshots
 *.png
+
+# IDE and local drivers (Selenium Manager downloads drivers automatically)
+.idea/
+chromedriver
+chromedriver.exe
+geckodriver
+__pycache__/

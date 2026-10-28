@@ -6,12 +6,12 @@ SEARCH_INPUT = (By.NAME, 'q')
 SEARCH_SUBMIT = (By.NAME, 'btnK')
 ADD_TO_CART_BTN = (By.ID, 'add-to-cart-button')
 PRODUCT_NAME = (By.ID, 'productTitle')
-COLOR_OPTIONS = (By.CSS_SELECTOR, '"#variation_color_name li"')
+COLOR_OPTIONS = (By.CSS_SELECTOR, '#variation_color_name li')
 CURRENT_COLOR = (By.CSS_SELECTOR, '#variation_color_name .selection')
 
 @given('Open Amazon product {product_id} page')
 def open_product(context, product_id):
-    context.driver.get('https://www.amazon.com/dp/{product_id}')
+    context.driver.get(f'https://www.amazon.com/dp/{product_id}')
 
 
 @when('Input {search_word} into search field1')
@@ -37,9 +37,9 @@ def verify_found_results_text(context, search_word):
 @then('Verify user can click through color')
 def verify_can_click_through_color(context):
     expected_colors = ['Army Green', 'Black', 'Blue', 'Brown']
-    colors = context.driver.find_elements(By.ID, *COLOR_OPTIONS)
-    for i in range(len(colors)):
-        colors.click()
+    colors = context.driver.find_elements(*COLOR_OPTIONS)
+    for i, color in enumerate(colors[:len(expected_colors)]):
+        color.click()
         current_color = context.driver.find_element(*CURRENT_COLOR).text
         assert current_color == expected_colors[i], \
-            f'error expected {expected_colors[i]}id not match {current_color}'
+            f'Expected color {expected_colors[i]}, got {current_color}'
